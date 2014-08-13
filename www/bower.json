@@ -1,0 +1,26 @@
+{
+  "name": "upload-phonegap-test",
+  "version": "0.0.1",
+  "authors": [
+    "Dan Jesus <danper.jesus@gmail.com>"
+  ],
+  "description": "upload test",
+  "main": "index.html",
+  "keywords": [
+    "phonegap"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "topcoat": "~0.8.0",
+    "jquery": "~2.1.1"
+  }
+}
