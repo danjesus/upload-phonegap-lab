@@ -5,20 +5,15 @@
 
         // Get List of images from server
         getFeed = function () {
-            //$scroller.empty();
+            $scroller.empty();
 
             $.ajax({
                 url: serverURL + "/images",
                 type: "GET",
-                success: function(res) {
-                    alert('success');
-                    alert(res);
-                }
+                dataType: "JSON"
             }).done(function (data) {
                 var l = data.length;
-                alert(data.length);
                 for (var i = 0; i < l; i++) {
-                    alert(data[i]);
                     $scroller.append('<img src="' + serverURL + '/' + data[i].filename + '"/>');
                 }
             });
@@ -80,7 +75,6 @@
     $('.camera-btn').on('click', takePicture);
 
     $('.load-images').on('click', function(e) {
-        alert('Loading images...');
         getFeed();
     });
 
