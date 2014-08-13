@@ -1,15 +1,24 @@
 (function () {
 
-    var serverURL = "http://10.0.0.52:8000",
+    var serverURL = "http://192.168.0.102:8000",
         $scroller = $('.scroller'),
 
         // Get List of images from server
         getFeed = function () {
             //$scroller.empty();
 
-            $.ajax({url: serverURL + "/images", dataType: "json", type: "GET"}).done(function (data) {
+            $.ajax({
+                url: serverURL + "/images",
+                type: "GET",
+                success: function(res) {
+                    alert('success');
+                    alert(res);
+                }
+            }).done(function (data) {
                 var l = data.length;
+                alert(data.length);
                 for (var i = 0; i < l; i++) {
+                    alert(data[i]);
                     $scroller.append('<img src="' + serverURL + '/' + data[i].filename + '"/>');
                 }
             });
@@ -69,6 +78,11 @@
         };
 
     $('.camera-btn').on('click', takePicture);
+
+    $('.load-images').on('click', function(e) {
+        alert('Loading images...');
+        getFeed();
+    });
 
     getFeed();
 
